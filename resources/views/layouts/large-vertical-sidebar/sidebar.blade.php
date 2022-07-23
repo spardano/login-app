@@ -66,7 +66,7 @@
         <ul class="childNav" data-parent="Users">    
             @role('admin')
             <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='imageCroper' ? 'open' : '' }}" href="{{route('imageCroper')}}">
+                <a class="{{ Route::currentRouteName()=='imageCroper' ? 'open' : '' }}" href="{{ url('/roles') }}">
                     <i class="nav-icon i-Crop-2"></i>
                     <span class="item-name">Roles</span>
                 </a>
@@ -77,18 +77,12 @@
                     <span class="item-name">Data Users</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='loader' ? 'open' : '' }}" href="{{route('loader')}}">
-                    <i class="nav-icon i-Loading-3"></i>
-                    <span class="item-name">Users Roles</span>
-                </a>
-            </li>
             @endrole
         </ul>
 
         <ul class="childNav" data-parent="surat-umum">
             <li class="nav-item">
-                @role('adminkelurahan')
+                @role('adminkelurahan || admin')
                 <a class="{{ Route::currentRouteName()=='alerts' ? 'open' : '' }}" href="{{ route('suratumum') }}">
                     <i class="nav-icon i-Bell1"></i>
                     <span class="item-name">Permintaan surat umum</span>
