@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKodeKelDesaToKelDesaTable extends Migration
+class AddDocumentToSuratUmumTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddKodeKelDesaToKelDesaTable extends Migration
      */
     public function up()
     {
-        Schema::table('kel_desa', function (Blueprint $table) {
-            $table->sting('kode_kel_desa');
+        Schema::table('surat_umum', function (Blueprint $table) {
+            $table->text('document')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddKodeKelDesaToKelDesaTable extends Migration
      */
     public function down()
     {
-        Schema::table('kel_desa', function (Blueprint $table) {
-            Schema::dropColumns('kode_kel_desa');
+        Schema::table('surat_umum', function (Blueprint $table) {
+            $table->dropColumn('document');
         });
     }
 }

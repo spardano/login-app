@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKodeKelDesaToKodeDesaTable extends Migration
+class CreateDocSuratNikah extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddKodeKelDesaToKodeDesaTable extends Migration
      */
     public function up()
     {
-        Schema::table('kode_desa', function (Blueprint $table) {
-            //
+        Schema::create('doc_surat_nikah', function (Blueprint $table) {
+            $table->id();
+            $table->string('uraian', 255);
+            $table->string('kode_surat', 20);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddKodeKelDesaToKodeDesaTable extends Migration
      */
     public function down()
     {
-        Schema::table('kode_desa', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('doc_surat_nikah');
     }
 }

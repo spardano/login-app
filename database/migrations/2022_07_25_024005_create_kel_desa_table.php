@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIdKelToUsersTable extends Migration
+class CreateKelDesaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddIdKelToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('id_kel_desa');
+        Schema::create('kel_desa', function (Blueprint $table) {
+            $table->id();
+            $table->integer('kode');
+            $table->string('nama_kel_desa', 200);
+            $table->string('kode_kel_desa', 100);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddIdKelToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            Schema::dropColumns('id_kel_desa');
-        });
+        Schema::dropIfExists('kel_desa');
     }
 }
