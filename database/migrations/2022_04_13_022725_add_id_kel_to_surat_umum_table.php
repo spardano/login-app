@@ -14,7 +14,7 @@ class AddIdKelToSuratUmumTable extends Migration
     public function up()
     {
         Schema::table('surat_umum', function (Blueprint $table) {
-            $table->integer('id_kel', 10);
+            $table->string('id_kel', 10)->unsigned();
         });
     }
 
