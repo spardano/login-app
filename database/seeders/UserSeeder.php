@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'email'    => 'admin@admin.com',
             'nik'      => '14080987837463',
             'password' => Hash::make('admin123'),
+            'id_kel_desa' => 1
         ]);
 
         $newUser->attachRole($adminRole);
