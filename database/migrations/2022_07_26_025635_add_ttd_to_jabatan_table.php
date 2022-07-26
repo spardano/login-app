@@ -26,7 +26,7 @@ class AddTtdToJabatanTable extends Migration
     public function down()
     {
         Schema::table('jabatan', function (Blueprint $table) {
-            //
+            $table->dropColumn('ttd');
         });
     }
 }
