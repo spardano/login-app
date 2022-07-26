@@ -34,12 +34,12 @@
                     <img alt="" src="{{ asset('assets/images/screenshots/02_preview.png') }}" /><i class="i-Eye"></i>
                 </a>
             </div>
-            <div
+            {{-- <div
                 class="layout-box mb-4 {{ Session::get('layout') == 'normal' || Session::get('layout') == ''  ? 'active' : '' }}">
                 <a href="{{route('normal')}}">
                     <img alt="" src="{{ asset('assets/images/screenshots/04_preview.png') }}" /><i class="i-Eye"></i>
                 </a>
-            </div>
+            </div> --}}
             <div class="layout-box mb-4 {{ Session::get('layout') == 'horizontal'   ? 'active' : '' }}">
                 <a href="{{route('horizontal')}}">
                     <img alt="" src="{{ asset('assets/images/screenshots/horizontal.png') }}" /><i class="i-Eye"></i>
