@@ -104,6 +104,49 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
+// Route::view('/', 'starter')->name('starter');
+Route::get('large-compact-sidebar/dashboard/dashboard1', function () {
+    // set layout sesion(key)
+    session(['layout' => 'compact']);
+    return view('dashboard.dashboardv1');
+})->name('compact');
+
+
+
+Route::view('apps/contacts/lists', 'apps.contacts.lists')->name('contacts-lists');
+Route::view('apps/contacts/contact-details', 'apps.contacts.contact-details')->name('contact-details');
+Route::view('apps/contacts/grid', 'apps.contacts.grid')->name('contacts-grid');
+Route::view('apps/contacts/contact-list-table', 'apps.contacts.contact-list-table')->name('contact-list-table');
+
+// forms
+Route::view('forms/basic-action-bar', 'forms.basic-action-bar')->name('basic-action-bar');
+Route::view('forms/multi-column-forms', 'forms.multi-column-forms')->name('multi-column-forms');
+Route::view('forms/smartWizard', 'forms.smartWizard')->name('smartWizard');
+Route::view('forms/tagInput', 'forms.tagInput')->name('tagInput');
+Route::view('forms/forms-basic', 'forms.forms-basic')->name('forms-basic');
+Route::view('forms/form-layouts', 'forms.form-layouts')->name('form-layouts');
+Route::view('forms/form-input-group', 'forms.form-input-group')->name('form-input-group');
+Route::view('forms/form-validation', 'forms.form-validation')->name('form-validation');
+Route::view('forms/form-editor', 'forms.form-editor')->name('form-editor');
+
+// Charts
+Route::view('charts/echarts', 'charts.echarts')->name('echarts');
+Route::view('charts/chartjs', 'charts.chartjs')->name('chartjs');
+Route::view('charts/apexLineCharts', 'charts.apexLineCharts')->name('apexLineCharts');
+Route::view('charts/apexAreaCharts', 'charts.apexAreaCharts')->name('apexAreaCharts');
+Route::view('charts/apexBarCharts', 'charts.apexBarCharts')->name('apexBarCharts');
+Route::view('charts/apexColumnCharts', 'charts.apexColumnCharts')->name('apexColumnCharts');
+Route::view('charts/apexRadialBarCharts', 'charts.apexRadialBarCharts')->name('apexRadialBarCharts');
+Route::view('charts/apexRadarCharts', 'charts.apexRadarCharts')->name('apexRadarCharts');
+Route::view('charts/apexPieDonutCharts', 'charts.apexPieDonutCharts')->name('apexPieDonutCharts');
+Route::view('charts/apexSparklineCharts', 'charts.apexSparklineCharts')->name('apexSparklineCharts');
+Route::view('charts/apexScatterCharts', 'charts.apexScatterCharts')->name('apexScatterCharts');
+Route::view('charts/apexBubbleCharts', 'charts.apexBubbleCharts')->name('apexBubbleCharts');
+Route::view('charts/apexCandleStickCharts', 'charts.apexCandleStickCharts')->name('apexCandleStickCharts');
+Route::view('charts/apexMixCharts', 'charts.apexMixCharts')->name('apexMixCharts');
+
+// datatables
+Route::view('datatables/basic-tables', 'datatables.basic-tables')->name('basic-tables');
 
 // sessions
 Route::view('sessions/signIn', 'sessions.signIn')->name('signIn');
