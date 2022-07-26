@@ -29,23 +29,23 @@
         <div class="layouts">
 
             <!---->
-            <div class="layout-box mb-4 {{ Session::get('layout') == 'compact' ? 'active' : '' }}">
+            {{-- <div class="layout-box mb-4 {{ Session::get('layout') == 'compact' ? 'active' : '' }}">
                 <a href="{{route('compact')}}">
                     <img alt="" src="{{ asset('assets/images/screenshots/02_preview.png') }}" /><i class="i-Eye"></i>
                 </a>
-            </div>
+            </div> --}}
             {{-- <div
                 class="layout-box mb-4 {{ Session::get('layout') == 'normal' || Session::get('layout') == ''  ? 'active' : '' }}">
                 <a href="{{route('normal')}}">
                     <img alt="" src="{{ asset('assets/images/screenshots/04_preview.png') }}" /><i class="i-Eye"></i>
                 </a>
             </div> --}}
-            <div class="layout-box mb-4 {{ Session::get('layout') == 'horizontal'   ? 'active' : '' }}">
+            {{-- <div class="layout-box mb-4 {{ Session::get('layout') == 'horizontal'   ? 'active' : '' }}">
                 <a href="{{route('horizontal')}}">
                     <img alt="" src="{{ asset('assets/images/screenshots/horizontal.png') }}" /><i class="i-Eye"></i>
                 </a>
-            </div>
-            <div class="layout-box mb-4 mt-30 {{ Session::get('layout') == 'vertical' ? 'active' : '' }}">
+            </div> --}}
+            {{-- <div class="layout-box mb-4 mt-30 {{ Session::get('layout') == 'vertical' ? 'active' : '' }}">
                 <a href="{{route('vertical')}}">
                     <span class="badge badge-danger p-1">New</span>
 
@@ -53,7 +53,7 @@
 
                     <i class="i-Eye"></i>
                 </a>
-            </div>
+            </div> --}}
         </div>
         <div class="text-center pt-3">More layouts coming...</div>
     </div>
