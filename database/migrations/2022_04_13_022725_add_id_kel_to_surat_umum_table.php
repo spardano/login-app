@@ -26,7 +26,7 @@ class AddIdKelToSuratUmumTable extends Migration
     public function down()
     {
         Schema::table('surat_umum', function (Blueprint $table) {
-            Schema::dropColumns('id_kel');
+            $table->dropColumn('id_kel');
         });
     }
 }
