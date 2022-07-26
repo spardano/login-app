@@ -127,7 +127,7 @@
             </li>
             @endrole
             <li class="nav-item">
-                <a href="{{route('forgot')}}">
+                <a href="{{route('logout')}}">
                     <i class="nav-icon i-Find-User"></i>
                     <span class="item-name">Logout</span>
                 </a>

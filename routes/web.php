@@ -103,4 +103,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
+// sessions
+Route::view('sessions/signIn', 'sessions.signIn')->name('signIn');
+Route::view('sessions/signUp', 'sessions.signUp')->name('signUp');
+Route::view('sessions/forgot', 'sessions.forgot')->name('forgot');
+
+
 require __DIR__ . '/auth.php';
