@@ -26,7 +26,7 @@ class AddStatusSuratToSuratNikahTable extends Migration
     public function down()
     {
         Schema::table('surat_nikah', function (Blueprint $table) {
-            Schema::dropColumns('status_surat');
+            $table->dropColumn('status_surat');
         });
     }
 }

@@ -26,7 +26,7 @@ class AddIdKelToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            Schema::dropColumns('id_kel_desa');
+            $table->dropColumn('id_kel_desa');
         });
     }
 }

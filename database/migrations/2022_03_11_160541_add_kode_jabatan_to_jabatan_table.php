@@ -26,7 +26,7 @@ class AddKodeJabatanToJabatanTable extends Migration
     public function down()
     {
         Schema::table('jabatan', function (Blueprint $table) {
-            Schema::dropColumns('kode_jabatan');
+            $table->dropColumn('jabatan');
         });
     }
 }

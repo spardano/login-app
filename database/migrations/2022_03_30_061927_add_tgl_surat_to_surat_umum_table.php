@@ -26,7 +26,7 @@ class AddTglSuratToSuratUmumTable extends Migration
     public function down()
     {
         Schema::table('surat_umum', function (Blueprint $table) {
-            Schema::dropColumns('tgl_surat');
+            $table->dropColumn('tgl_surat');
         });
     }
 }

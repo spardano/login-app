@@ -26,7 +26,7 @@ class AddNamaToDataPenduduksTable extends Migration
     public function down()
     {
         Schema::table('data_penduduks', function (Blueprint $table) {
-            Schema::dropColumns('nama');
+            $table->dropColumn('nama');
         });
     }
 }

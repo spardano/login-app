@@ -26,7 +26,7 @@ class AddSpesifiksiToKlasifikasiSuratTable extends Migration
     public function down()
     {
         Schema::table('klasifikasi_surat', function (Blueprint $table) {
-            Schema::dropColumns('spesifikasi_surat');
+            $table->dropColumn('spesifikasi_surat');
         });
     }
 }
