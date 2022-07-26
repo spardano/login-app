@@ -20,7 +20,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return 'disini';
         $title = 'Home';
         if (Auth::user()->id_kel_desa != 52) {
             $users = User::where('id_kel_desa', Auth::user()->id_kel_desa)->count();
