@@ -53,7 +53,7 @@ Route::delete('penomoran_surat/delete/{id}', [PenomoranSuratController::class, '
 Route::get('users', [UserController::class, 'index'])->name('users');
 Route::get('users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
 Route::post('users/store', [UserController::class, 'store'])->name('users.store');
-Route::post('users/update/{id}', [UserController::class, 'update'])->name('users.update');
+Route::post('users/update', [UserController::class, 'update'])->name('users.update');
 
 //Jabatan
 Route::prefix('pejabat')->group(function () {

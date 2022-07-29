@@ -31,9 +31,9 @@
             <td>{{ $item->name }}</td>
             <td>{{ $item->kelurahan->nama_kel_desa }}</td>
             <td>
-              <a href=# type="button" class="btn btn-primary btn-sm "><i class="bi bi-diagram-3"></i></a> 
-              <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editusers{{ $item->id }}"><i class="bi bi-pencil-square"></i></button>
-              <a href="users/delete/{{ $item->id }}" type="button" class="btn btn-danger btn-sm" ><i class="bi bi-backspace"></i></a>
+              <a href=# type="button" class="btn btn-primary btn-sm "><i class="bi bi-diagram-3"></i>Show</a> 
+              <button type="button" class="btn btn-info btn-sm btn-edit-user" id="btnEditUser" data-item="{{ $item }}"><i class="bi bi-pencil-square"></i> Edit</button>
+              <a href="users/delete/{{ $item->id }}" type="button" class="btn btn-danger btn-sm" ><i class="bi bi-backspace"></i>Delete</a>
             </td>
           </tr>
           @endforeach   
@@ -45,7 +45,6 @@
 </div>
 
 <!-- Modal Tambah Users -->
-@foreach ($data as $row)
 <div class="modal fade " id="tambahusers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -111,45 +110,39 @@
         </div>
     </div>
 </div>
-@endforeach
 <!-- End Tambah Users -->
 
-
 <!-- Modal Edit Users -->
-@foreach ($data as $row)
-<div class="modal fade " id="editusers{{ $row->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="editusers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger">
                 <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
-                <button type="button" class="btn btn-warning btn-sm"  data-bs-dismiss="modal"><i class="bi bi-box-arrow-in-left"></i></button>
+                <button type="button" class="btn btn-warning btn-sm"  onclick="dismissModal()"><i class="bi bi-box-arrow-in-left"></i> Close</button>
             </div>
             <div class="modal-body">
                 <div>
-                  <form action="{{ route('users.update', [$row->id]) }}" method="POST">
+                  <form id="edit_user_form" action="{{ route('users.update') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="id">
                     <table style="width: 100%">
                         <tr>
                             <td >Nama  </td>
                             <td>:</td>
-                            <td><input type="text" name="name" class="form-control" value="{{ $row->name }}" required></td>
+                            <td><input type="text" name="name" class="form-control" required></td>
                         </tr>
                         <tr>
                             <td >Email</td>
                             <td>:</td>
-                            <td><input type="text"  name="email" class="form-control" value="{{ $row->email }}" required></td>
+                            <td><input type="text"  name="email" class="form-control" required></td>
                         </tr>
                         <tr>
                           <td>Roles</td>
                           <td>:</td>
                           <td>
-                            <select name="role" class="form-control" id="role" onchange="showHideKelurahan()" required>
+                            <select name="role" class="form-control" id="role" required>
                               @foreach ($role as $item)
-                                @if ($item->id == $row->role)
-                                 <option value='{{ $item->id }}' selected="true">{{ $item->name }}</option>
-                                @else
                                  <option value='{{ $item->id }}'>{{ $item->name }}</option>
-                                @endif
                               @endforeach
                             </select>
                           </td>                         
@@ -160,15 +153,15 @@
                           <td>
                             <select name="id_kel_desa" class="form-control" required>
                                 @foreach ($kelurahan as $row)
-                                <option value='{{ $row->id }}'>{{ $row->nama_kel_desa }}</option>
-                              @endforeach
+                                  <option value='{{ $row->id }}'>{{ $row->nama_kel_desa }}</option>
+                                @endforeach
                             </select>
                           </td>                         
                         </tr>
                         <tr style="visibility: hidden"> 
                           <td >Password</td>
                           <td>:</td>
-                          <td><input type="hidden" name="password" value="{{ $row->password }}" required></td>
+                          <td><input type="hidden" name="password"  required></td>
                         </tr>
                     </table>
                 </div>
@@ -180,11 +173,9 @@
         </div>
     </div>
 </div>
-@endforeach
 <!-- End Edit Users -->
 
 @endsection
-
 
 <!-- JS -->
 @section('bottom-js')
@@ -194,22 +185,29 @@
 
 <script>
     $(document).ready( function () {
-    $('#userTable').DataTable();
 
-    var kel = document.getElementById("kel");
-    kel.style.visibility = "hidden";
-} );
+      $('#userTable').DataTable();
 
-function showHideKelurahan() {
-  var role = $('#role').val();
-  if (role == 4,5,6,7){
-    var kel = document.getElementById("kel");
-    kel.style.visibility = "visible";
-  }else{
-    var kel = document.getElementById("kel");
-    kel.style.visibility = "hidden";
-  }  
-}
+    });
+
+    $('.btn-edit-user').on('click', function () {
+      
+      item = $(this).data('item');
+
+      $('#edit_user_form input[name="id"]').val(item.id);
+      $('#edit_user_form input[name="name"]').val(item.name);
+      $('#edit_user_form input[name="email"]').val(item.email);
+      $('#edit_user_form select[name="role"]').val(item.roleuser.id).change();
+      $('#edit_user_form select[name="id_kel_desa"]').val(item.kelurahan.id).change();
+      $('#editusers').modal('show');
+
+    });
+    
+
+    function dismissModal(){
+        $('#editusers').modal('hide');
+    };
+
 </script>
 <!-- END JS -->
 

@@ -151,11 +151,9 @@
                             <div class="form-group">
                                 <label for="id_jenis_surat">Jenis Surat</label>
                                 <select name="id_jenis_surat" id="id_jenis_surat" class="form-control">
-
                                     @foreach ($kode_surat as $item)
                                     <option value="{{ $item->id }}">{{ $item->uraian }}</option>
                                     @endforeach
-
                                 </select>
                             </div>
 

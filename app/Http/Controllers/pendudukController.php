@@ -28,7 +28,7 @@ class pendudukController extends Controller
         $keldes = data_penduduk::with('kel_desa')->where('id', 'kelurahan')->first();
         if ($user->hasRole(['admin'])) { //kondisi jika login admin
             //tampung seluruh data dari table data_penduduk
-            $penduduk = data_penduduk::get();
+            $penduduk = data_penduduk::with('getdatakeldes')->get();
         } else if ($user->hasRole(['adminkelurahan'])) { // kondisi login admin kelurahan
             //tampung data_penduduk dengan method getdatakeldes dimana kelurahan dari data_penduduk 
             //sama dengan id_kel_desa user yang login 

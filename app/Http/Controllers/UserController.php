@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $user = User::with('kelurahan')->get();
+        $user = User::with(['kelurahan', 'roleuser'])->get();
         $kelurahan = kel_desa::get();
         $role = Role::get();
         $userrole = roleuser::get();
@@ -44,9 +44,10 @@ class UserController extends Controller
         return redirect()->route('users');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user  = User::where('id', $id)->first();
+        $user  = User::where('id','=', $request->id)->first();
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->id_kel_desa = $request->id_kel_desa;
