@@ -24,8 +24,8 @@ class pendudukController extends Controller
         $user = User::where('id', $userLogin->id)->first();
 
         $kelurahan = kel_desa::get();
-        // menampung data table data_penduduk dengan id dari method kel_desa sama dengan kelurahan di data penduduk
-        $keldes = data_penduduk::with('kel_desa')->where('id', 'kelurahan')->first();
+
+       
         if ($user->hasRole(['admin'])) { //kondisi jika login admin
             //tampung seluruh data dari table data_penduduk
             $penduduk = data_penduduk::with('getdatakeldes')->get();
@@ -41,7 +41,6 @@ class pendudukController extends Controller
         return view('admin.penduduk.index', [
             'title' => 'datapenduduk',
             'data' => $penduduk,
-            'keldes' => $keldes,
             'kelurahan' => $kelurahan
         ]);
     }

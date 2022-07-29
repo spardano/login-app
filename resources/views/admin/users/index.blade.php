@@ -10,7 +10,7 @@
   <div class="card-body">
     <h3 style="text-align: center">DATA USERS</h3>
     <div style="margin-bottom: 20px; margin-top:20px">
-      <button type="button" class="btn btn-info " data-bs-toggle="modal" data-bs-target="#tambahusers"><i class="bi bi-person-plus-fill">Tambah</i></button>
+      <button type="button" class="btn btn-info" id="btn-modal-add-user"><i class="bi bi-person-plus-fill">Tambah</i></button>
     </div>
     <div class="table-responsive">
       <table class="table table-striped" id="userTable">
@@ -51,7 +51,7 @@
 
             <div class="modal-header bg-danger">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
-                <button type="button" class="btn btn-warning"  data-bs-dismiss="modal"><i class="bi bi-box-arrow-in-left"></i></button>
+                <button type="button" class="btn btn-warning"  onclick="dismissModal()"><i class="bi bi-box-arrow-in-left"></i>Close</button>
             </div>
             <div class="modal-body">
                 <div>
@@ -82,7 +82,7 @@
                           <td>Roles</td>
                           <td>:</td>
                           <td>
-                            <select name="role" class="form-control" id="role" onchange="showHideKelurahan()">
+                            <select name="role" class="form-control" id="role">
                               @foreach ($role as $item)
                                 <option value='{{ $item->id }}'>{{ $item->name }}</option>
                               @endforeach
@@ -202,10 +202,15 @@
       $('#editusers').modal('show');
 
     });
+
+    $('#btn-modal-add-user').on('click', function(){
+      $('#tambahusers').modal('show');
+    })
     
 
     function dismissModal(){
         $('#editusers').modal('hide');
+        $('#tambahusers').modal('hide');
     };
 
 </script>
