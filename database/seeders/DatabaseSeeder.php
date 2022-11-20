@@ -14,12 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            RolesTableSeeder::class,
             UserSeeder::class,
             data_pendudukSeeder::class,
             jabatanSeeder::class,
             kel_desaSeeder::class,
-            UsersTableSeeder::class,
-            RolesTableSeeder::class
         ]);
     }
 }

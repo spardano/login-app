@@ -17,18 +17,18 @@ class RolesTableSeeder extends Seeder
          *
          */
         $RoleItems = [
-            [
-                'name'        => 'Admin',
-                'slug'        => 'admin',
-                'description' => 'Admin Role',
-                'level'       => 4,
-            ],
-            [
-                'name'        => 'User',
-                'slug'        => 'user',
-                'description' => 'User Role',
-                'level'       => 1,
-            ],
+            // [
+            //     'name'        => 'Admin',
+            //     'slug'        => 'admin',
+            //     'description' => 'Admin Role',
+            //     'level'       => 4,
+            // ],
+            // [
+            //     'name'        => 'User',
+            //     'slug'        => 'user',
+            //     'description' => 'User Role',
+            //     'level'       => 1,
+            // ],
             [
                 'name'        => 'Admin Kelurahan',
                 'slug'        => 'adminkelurahan',
@@ -41,12 +41,12 @@ class RolesTableSeeder extends Seeder
                 'description' => 'Unverified Role',
                 'level'       => 3,
             ],
-            [
-                'name'        => 'Unverified',
-                'slug'        => 'unverified',
-                'description' => 'Unverified Role',
-                'level'       => 0,
-            ],
+            // [
+            //     'name'        => 'Unverified',
+            //     'slug'        => 'unverified',
+            //     'description' => 'Unverified Role',
+            //     'level'       => 0,
+            // ],
         ];
 
         /*
