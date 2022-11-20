@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             data_pendudukSeeder::class,
             jabatanSeeder::class,
             kel_desaSeeder::class,
+            UsersTableSeeder::class,
+            RolesTableSeeder::class
         ]);
     }
 }
