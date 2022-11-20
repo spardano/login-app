@@ -77,8 +77,8 @@
             </div>
             <div class="modal-body">
                   <form action="{{ route("pejabat.tambah")}}" method="POST">
-                    @csrf
                     <table style="width: 100%">
+                        @csrf
                         <tr>
                             <td >Nama  </td>
                             <td>:</td>
@@ -115,7 +115,6 @@
                             <td><input type="text" class="form-control" name="kode_jabatan"></td>
                         </tr>
                     </table>
-                </div>
             </div> 
             <div class="modal-footer bg-info">
                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -193,7 +192,7 @@
     <script src="http://gull-html-laravel.com/assets/js/modal.script.js"></script>
     <script>
         $(document).ready( function () {
-        $('#JabatanTable').DataTable();
+         $('#JabatanTable').DataTable();
         });
 
         $('.btn-edit-jabatan').on('click', function(){
