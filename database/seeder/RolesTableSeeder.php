@@ -22,7 +22,7 @@ class RolesTableSeeder extends Seeder
                 'name'        => 'Admin',
                 'slug'        => 'admin',
                 'description' => 'Admin Role',
-                'level'       => 5,
+                'level'       => 4,
             ],
             [
                 'name'        => 'User',
@@ -34,13 +34,13 @@ class RolesTableSeeder extends Seeder
                 'name'        => 'Admin Kelurahan',
                 'slug'        => 'adminkelurahan',
                 'description' => 'Unverified Role',
-                'level'       => 0,
+                'level'       => 2,
             ],
             [
-                'name'        => 'Admin Kelurahan',
-                'slug'        => 'adminkelurahan',
+                'name'        => 'Pejabat Kelurahan',
+                'slug'        => 'pejabat',
                 'description' => 'Unverified Role',
-                'level'       => 0,
+                'level'       => 3,
             ],
             [
                 'name'        => 'Unverified',
