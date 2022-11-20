@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $adminRole = Role::where('name', '=', 'Admin')->first();
+        $adminKelurahanRole = Role::where('name', '=', 'Admin Kelurahan')->first();
 
         $newUser = User::create([
             'name'     => 'Admin',
@@ -26,6 +27,15 @@ class UserSeeder extends Seeder
             'id_kel_desa' => 1
         ]);
 
+        $newAdminKel = User::create([
+            'name'     => 'Admin Kelurahan',
+            'email'    => 'admin_kel@admin.com',
+            'nik'      => '14080987837456',
+            'password' => Hash::make('admin123'),
+            'id_kel_desa' => 1
+        ]);
+
         $newUser->attachRole($adminRole);
+        $newAdminKel->attachRole($adminKelurahanRole);
     }
 }

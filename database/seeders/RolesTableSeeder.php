@@ -31,6 +31,18 @@ class RolesTableSeeder extends Seeder
                 'level'       => 1,
             ],
             [
+                'name'        => 'Admin Kelurahan',
+                'slug'        => 'adminkelurahan',
+                'description' => 'Unverified Role',
+                'level'       => 0,
+            ],
+            [
+                'name'        => 'Admin Kelurahan',
+                'slug'        => 'adminkelurahan',
+                'description' => 'Unverified Role',
+                'level'       => 0,
+            ],
+            [
                 'name'        => 'Unverified',
                 'slug'        => 'unverified',
                 'description' => 'Unverified Role',
